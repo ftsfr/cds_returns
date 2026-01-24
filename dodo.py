@@ -152,7 +152,7 @@ def task_format():
 def task_run_notebooks():
     """Execute summary notebook and convert to HTML."""
     notebook_py = BASE_DIR / "src" / "summary_cds_returns_ipynb.py"
-    notebook_ipynb = NOTEBOOK_BUILD_DIR / "summary_cds_returns.ipynb"
+    notebook_ipynb = OUTPUT_DIR / "summary_cds_returns.ipynb"
 
     def run_notebook():
         # Convert py to ipynb
@@ -185,7 +185,7 @@ def task_generate_pipeline_site():
         "actions": ["chartbook build -f"],
         "file_dep": [
             "chartbook.toml",
-            NOTEBOOK_BUILD_DIR / "summary_cds_returns.ipynb",
+            OUTPUT_DIR / "summary_cds_returns.ipynb",
         ],
         "targets": [BASE_DIR / "docs" / "index.html"],
         "verbosity": 2,

@@ -1,0 +1,24 @@
+# Paper References for CDS Returns Module
+
+[He2017]
+title = "Intermediary Asset Pricing: New Evidence from Many Asset Classes"
+authors = "Zhiguo He, Bryan Kelly, and Asaf Manela"
+year = 2017
+description = "The paper investigates the role of financial intermediaries, specifically primary dealers, in asset pricing across various asset classes including CDS."
+empirical_facts = [
+    "Shocks to the equity capital ratio of primary dealers explain cross-sectional differences in expected returns across seven asset classes.",
+    "Intermediary capital risk is procyclical, indicating countercyclical leverage among intermediaries.",
+    "The estimated price of risk on intermediary capital shocks is consistently positive across all asset classes.",
+]
+data_sources = ["New York Fed's primary dealer list", "CRSP/Compustat data", "WRDS Markit CDS"]
+
+[Palhares2012]
+title = "Cash-Flow Maturity and Risk Premia in CDS Markets"
+authors = "Diogo Palhares"
+year = 2012
+description = "The paper constructs CDS returns and analyzes risk premia in CDS markets."
+empirical_facts = [
+    "CDS returns can be constructed from spread changes and duration.",
+    "There are significant risk premia in CDS markets across different tenors and credit quality.",
+]
+data_sources = ["Markit CDS data"]

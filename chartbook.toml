@@ -24,10 +24,32 @@ README_file_path = "./README.md"
 [notebooks.summary_cds_returns]
 notebook_name = "summary_cds_returns"
 notebook_description = "Summary statistics and visualization of CDS portfolio returns"
-notebook_path = "_output/_notebook_build/summary_cds_returns.ipynb"
+notebook_path = "_output/summary_cds_returns.ipynb"
 is_publishable = true
 
 [charts]
+
+[charts.cds_returns_replication]
+chart_name = "CDS Portfolio Returns Replication"
+short_description_chart = "Monthly CDS portfolio returns following He, Kelly, and Manela (2017) methodology"
+dataframe_id = "ftsfr_cds_portfolio_returns"
+path_to_html_chart = "./_output/cds_returns_replication.html"
+path_to_excel_chart = ""
+topic_tags = ["CDS", "credit", "returns", "replication"]
+past_publications = ["He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes", "Palhares (2012) - CDS Returns"]
+chart_docs_str = """
+## CDS Portfolio Returns
+
+Monthly CDS portfolio returns calculated using He, Kelly, and Manela (2017) methodology.
+
+### Portfolio Structure
+
+20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
+
+### Return Formula
+
+CDS Return = CDS spread carry + Spread change x Risky duration
+"""
 
 [dataframes]
 

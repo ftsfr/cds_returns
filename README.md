@@ -37,7 +37,19 @@ Where:
 3. Install dependencies: `pip install -r requirements.txt`
 4. Run pipeline: `doit`
 
-## References
+## Academic References
 
-- He, Z., Kelly, B., & Manela, A. (2017). Intermediary asset pricing: New evidence from many asset classes. *Journal of Financial Economics*.
-- Palhares, D. (2013). Cash-flow maturity and risk premia in CDS markets. Working paper.
+### Primary Papers
+
+- **He, Kelly, and Manela (2017)** - "Intermediary Asset Pricing: New Evidence from Many Asset Classes"
+  - Journal of Financial Economics 126.1 (2017): 1-35
+  - Methodology for constructing leverage-adjusted CDS returns
+
+- **Palhares (2012)** - "Cash-Flow Maturity and Risk Premia in CDS Markets"
+  - Constructs CDS returns from spread changes and duration
+
+### Key Findings Replicated
+
+- CDS returns can be constructed from spread changes and risky duration
+- Significant risk premia exist across tenors and credit quality
+- Intermediary capital factors explain CDS return variation
