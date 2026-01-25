@@ -179,6 +179,23 @@ def task_run_notebooks():
     }
 
 
+def task_generate_charts():
+    """Generate interactive HTML charts."""
+    return {
+        "actions": ["python src/generate_chart.py"],
+        "file_dep": [
+            "src/generate_chart.py",
+            DATA_DIR / "ftsfr_cds_portfolio_returns.parquet",
+        ],
+        "targets": [
+            OUTPUT_DIR / "cds_returns_replication.html",
+            OUTPUT_DIR / "cds_cumulative_returns.html",
+        ],
+        "verbosity": 2,
+        "task_dep": ["format"],
+    }
+
+
 def task_generate_pipeline_site():
     """Generate chartbook documentation site."""
     return {
@@ -186,8 +203,10 @@ def task_generate_pipeline_site():
         "file_dep": [
             "chartbook.toml",
             OUTPUT_DIR / "summary_cds_returns.ipynb",
+            OUTPUT_DIR / "cds_returns_replication.html",
+            OUTPUT_DIR / "cds_cumulative_returns.html",
         ],
         "targets": [BASE_DIR / "docs" / "index.html"],
         "verbosity": 2,
-        "task_dep": ["run_notebooks"],
+        "task_dep": ["run_notebooks", "generate_charts"],
     }

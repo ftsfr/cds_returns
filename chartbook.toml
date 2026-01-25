@@ -51,6 +51,28 @@ Monthly CDS portfolio returns calculated using He, Kelly, and Manela (2017) meth
 CDS Return = CDS spread carry + Spread change x Risky duration
 """
 
+[charts.cds_cumulative_returns]
+chart_name = "CDS Portfolio Cumulative Returns"
+short_description_chart = "Cumulative returns showing growth of $1 invested in CDS portfolios"
+dataframe_id = "ftsfr_cds_portfolio_returns"
+path_to_html_chart = "./_output/cds_cumulative_returns.html"
+path_to_excel_chart = ""
+topic_tags = ["CDS", "credit", "cumulative returns", "replication"]
+past_publications = ["He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes"]
+chart_docs_str = """
+## CDS Portfolio Cumulative Returns
+
+Cumulative returns showing growth of $1 invested in CDS portfolios.
+
+### Portfolio Structure
+
+20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
+
+### Calculation
+
+Cumulative return = Product of (1 + monthly return) over time
+"""
+
 [dataframes]
 
 [dataframes.ftsfr_cds_portfolio_returns]
