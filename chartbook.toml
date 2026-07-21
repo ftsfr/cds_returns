@@ -1,99 +1,57 @@
-[config]
-type = "pipeline"
-chartbook_format_version = "0.0.2"
-
-[site]
-title = "CDS Returns"
-author = "Jeremy Bejarano"
+[project]
+name = "CDS Returns"
+description = "Monthly CDS portfolio returns following He, Kelly, and Manela (2017) methodology"
+contributors = [
+    "Jeremy Bejarano",
+    "Kausthub Kesheva",
+]
+repo_url = "https://github.com/ftsfr/cds_returns"
 copyright = "2025"
-logo_path = ""
-favicon_path = ""
-
-[pipeline]
-id = "cds_returns"
-pipeline_name = "CDS Returns"
-pipeline_description = "Monthly CDS portfolio returns following He, Kelly, and Manela (2017) methodology"
-lead_pipeline_developer = "Jeremy Bejarano"
-contributors = ["Jeremy Bejarano", "Kausthub Kesheva"]
-runs_on = "Windows/Linux/MacOS"
-git_repo_URL = "https://github.com/ftsfr/cds_returns"
-README_file_path = "./README.md"
-
-[notebooks]
+os_compatibility = [
+    "Windows",
+    "Linux",
+    "MacOS",
+]
 
 [notebooks.summary_cds_returns]
-notebook_name = "summary_cds_returns"
-notebook_description = "Summary statistics and visualization of CDS portfolio returns"
-notebook_path = "_output/summary_cds_returns.ipynb"
-is_publishable = true
-
-[charts]
-
-[charts.cds_returns_replication]
-chart_name = "CDS Portfolio Returns Replication"
-short_description_chart = "Monthly CDS portfolio returns following He, Kelly, and Manela (2017) methodology"
-dataframe_id = "ftsfr_cds_portfolio_returns"
-path_to_html_chart = "./_output/cds_returns_replication.html"
-path_to_excel_chart = ""
-topic_tags = ["CDS", "credit", "returns", "replication"]
-past_publications = ["He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes", "Palhares (2012) - CDS Returns"]
-chart_docs_str = """
-## CDS Portfolio Returns
-
-Monthly CDS portfolio returns calculated using He, Kelly, and Manela (2017) methodology.
-
-### Portfolio Structure
-
-20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
-
-### Return Formula
-
-CDS Return = CDS spread carry + Spread change x Risky duration
-"""
-
-[charts.cds_cumulative_returns]
-chart_name = "CDS Portfolio Cumulative Returns"
-short_description_chart = "Cumulative returns showing growth of $1 invested in CDS portfolios"
-dataframe_id = "ftsfr_cds_portfolio_returns"
-path_to_html_chart = "./_output/cds_cumulative_returns.html"
-path_to_excel_chart = ""
-topic_tags = ["CDS", "credit", "cumulative returns", "replication"]
-past_publications = ["He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes"]
-chart_docs_str = """
-## CDS Portfolio Cumulative Returns
-
-Cumulative returns showing growth of $1 invested in CDS portfolios.
-
-### Portfolio Structure
-
-20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
-
-### Calculation
-
-Cumulative return = Product of (1 + monthly return) over time
-"""
-
-[dataframes]
+name = "summary_cds_returns"
+description = "Summary statistics and visualization of CDS portfolio returns"
+path = "_output/summary_cds_returns.ipynb"
+publishable = true
 
 [dataframes.ftsfr_cds_portfolio_returns]
-dataframe_name = "ftsfr_cds_portfolio_returns"
-short_description_df = "Monthly CDS portfolio returns (20 portfolios: 4 tenors x 5 credit quintiles)"
-data_sources = ["Markit CDS"]
-data_providers = ["WRDS"]
-need_to_contact_provider = ["no"]
-data_on_pre_approved_list = ["No"]
-links_to_data_providers = ["https://wrds-www.wharton.upenn.edu/"]
-topic_tags = ["CDS", "credit", "returns", "fixed income"]
-type_of_data_access = ["WRDS Subscription"]
-data_license = "WRDS"
-license_expiration_date = ""
-provider_contact_info = ""
-restriction_on_use = "No"
-how_is_pulled = "Pulled from WRDS Markit CDS database"
-path_to_parquet_data = "./_data/ftsfr_cds_portfolio_returns.parquet"
-path_to_excel_data = ""
+name = "ftsfr_cds_portfolio_returns"
+description = "Monthly CDS portfolio returns (20 portfolios: 4 tenors x 5 credit quintiles)"
+sources = [
+    "Markit CDS",
+]
+providers = [
+    "WRDS",
+]
+contact_required = [
+    "no",
+]
+pre_approved = [
+    "No",
+]
+provider_links = [
+    "https://wrds-www.wharton.upenn.edu/",
+]
+tags = [
+    "CDS",
+    "credit",
+    "returns",
+    "fixed income",
+]
+access_types = [
+    "WRDS Subscription",
+]
+license = "WRDS"
+restrictions = "No"
+pull_method = "Pulled from WRDS Markit CDS database"
+path = "./_data/ftsfr_cds_portfolio_returns.parquet"
 date_col = "ds"
-dataframe_docs_str = """
+docs = """
 ## CDS Portfolio Returns
 
 Monthly CDS portfolio returns calculated following He, Kelly, and Manela (2017) methodology.
@@ -128,24 +86,38 @@ WRDS Markit CDS data (USD contracts, XR restructuring clause, CompositeDepth5Y >
 """
 
 [dataframes.ftsfr_cds_contract_returns]
-dataframe_name = "ftsfr_cds_contract_returns"
-short_description_df = "Monthly CDS returns at the individual contract level"
-data_sources = ["Markit CDS"]
-data_providers = ["WRDS"]
-need_to_contact_provider = ["no"]
-data_on_pre_approved_list = ["No"]
-links_to_data_providers = ["https://wrds-www.wharton.upenn.edu/"]
-topic_tags = ["CDS", "credit", "returns", "fixed income"]
-type_of_data_access = ["WRDS Subscription"]
-data_license = "WRDS"
-license_expiration_date = ""
-provider_contact_info = ""
-restriction_on_use = "No"
-how_is_pulled = "Pulled from WRDS Markit CDS database"
-path_to_parquet_data = "./_data/ftsfr_cds_contract_returns.parquet"
-path_to_excel_data = ""
+name = "ftsfr_cds_contract_returns"
+description = "Monthly CDS returns at the individual contract level"
+sources = [
+    "Markit CDS",
+]
+providers = [
+    "WRDS",
+]
+contact_required = [
+    "no",
+]
+pre_approved = [
+    "No",
+]
+provider_links = [
+    "https://wrds-www.wharton.upenn.edu/",
+]
+tags = [
+    "CDS",
+    "credit",
+    "returns",
+    "fixed income",
+]
+access_types = [
+    "WRDS Subscription",
+]
+license = "WRDS"
+restrictions = "No"
+pull_method = "Pulled from WRDS Markit CDS database"
+path = "./_data/ftsfr_cds_contract_returns.parquet"
 date_col = "ds"
-dataframe_docs_str = """
+docs = """
 ## CDS Contract Returns
 
 Monthly returns for individual CDS contracts.
@@ -166,4 +138,61 @@ then aggregated to monthly frequency.
 ### Data Source
 
 WRDS Markit CDS data (USD contracts, XR restructuring clause)
+"""
+
+[charts.cds_returns_replication]
+name = "CDS Portfolio Returns Replication"
+description = "Monthly CDS portfolio returns following He, Kelly, and Manela (2017) methodology"
+dataframe = "ftsfr_cds_portfolio_returns"
+path = "./_output/cds_returns_replication.html"
+tags = [
+    "CDS",
+    "credit",
+    "returns",
+    "replication",
+]
+publications = [
+    "He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes",
+    "Palhares (2012) - CDS Returns",
+]
+docs = """
+## CDS Portfolio Returns
+
+Monthly CDS portfolio returns calculated using He, Kelly, and Manela (2017) methodology.
+
+### Portfolio Structure
+
+20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
+
+### Return Formula
+
+CDS Return = CDS spread carry + Spread change x Risky duration
+"""
+
+[charts.cds_cumulative_returns]
+name = "CDS Portfolio Cumulative Returns"
+description = "Cumulative returns showing growth of $1 invested in CDS portfolios"
+dataframe = "ftsfr_cds_portfolio_returns"
+path = "./_output/cds_cumulative_returns.html"
+tags = [
+    "CDS",
+    "credit",
+    "cumulative returns",
+    "replication",
+]
+publications = [
+    "He, Kelly, and Manela (2017) - Intermediary Asset Pricing: New Evidence from Many Asset Classes",
+]
+docs = """
+## CDS Portfolio Cumulative Returns
+
+Cumulative returns showing growth of $1 invested in CDS portfolios.
+
+### Portfolio Structure
+
+20 portfolios = 4 tenors (3Y, 5Y, 7Y, 10Y) x 5 credit quintiles
+
+### Calculation
+
+Cumulative return = Product of (1 + monthly return) over time
 """
